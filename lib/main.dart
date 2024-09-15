@@ -42,12 +42,12 @@ class _MyHomePageState extends State<MyHomePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Padding(
-                padding: EdgeInsets.only(bottom: 60.0), // Отступ снизу
+                padding: EdgeInsets.only(bottom: 60.0), 
                 child: Text(
-                  'Авторизация', // Текст "Авторизация"
+                  'Авторизация',
                   style: TextStyle(
-                    fontSize: 24, // Размер шрифта
-                    fontWeight: FontWeight.bold, // Жирный шрифт
+                    fontSize: 24, 
+                    fontWeight: FontWeight.bold, 
                   ),
                 ),
               ),
@@ -72,7 +72,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       hintStyle: TextStyle(color: Colors.grey),
                     ),
                   ),
-                  SizedBox(height: 20.0), // Отступ между TextField
+                  SizedBox(height: 20.0),
                   TextField(
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
@@ -90,9 +90,9 @@ class _MyHomePageState extends State<MyHomePage> {
                       hintStyle: TextStyle(color: Colors.grey),
                     ),
                   ),
-                  SizedBox(height: 20.0), // Отступ перед чекбоксом
+                  SizedBox(height: 20.0), 
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.center, // Центрируем содержимое
+                    mainAxisAlignment: MainAxisAlignment.center, 
                     children: [
                       Checkbox(
                         value: _isChecked,
@@ -101,13 +101,13 @@ class _MyHomePageState extends State<MyHomePage> {
                             _isChecked = value ?? false;
                           });
                         },
-                        activeColor: Colors.grey, // Цвет галочки
+                        activeColor: Colors.grey,
                         checkColor: Colors.white,
                         side: BorderSide(color: Colors.grey),
                       ),
                       Text(
                         'Запомнить меня',
-                        style: TextStyle(color: Colors.grey), // Цвет текста
+                        style: TextStyle(color: Colors.grey),
                       ),
                     ],
                   ),
