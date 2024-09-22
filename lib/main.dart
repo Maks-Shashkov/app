@@ -1,4 +1,6 @@
+
 import 'package:flutter/material.dart';
+import 'catalog.dart';
 
 void main() {
   runApp(const MyApp());
@@ -7,7 +9,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Авторизация'),
     );
   }
 }
@@ -32,22 +33,25 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   bool _isChecked = false;
+
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
+      backgroundColor: Colors.grey.shade900,
       body: Center(
         child: Padding(
-            padding: EdgeInsets.all(16.0),
-            child: Column(
+          padding: EdgeInsets.all(16.0),
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Padding(
-                padding: EdgeInsets.only(bottom: 60.0), 
+                padding: EdgeInsets.only(bottom: 60.0),
                 child: Text(
                   'Авторизация',
                   style: TextStyle(
-                    fontSize: 24, 
-                    fontWeight: FontWeight.bold, 
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
                   ),
                 ),
               ),
@@ -58,7 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   TextField(
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
-                        borderRadius:  BorderRadius.all(
+                        borderRadius: BorderRadius.all(
                           Radius.circular(10.0),
                         ),
                         borderSide: BorderSide(
@@ -70,6 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       filled: true,
                       labelText: 'Логин',
                       hintStyle: TextStyle(color: Colors.grey),
+                      labelStyle: TextStyle(color: Colors.white),
                     ),
                   ),
                   SizedBox(height: 20.0),
@@ -88,11 +93,13 @@ class _MyHomePageState extends State<MyHomePage> {
                       filled: true,
                       labelText: 'Пароль',
                       hintStyle: TextStyle(color: Colors.grey),
+                      labelStyle: TextStyle(color: Colors.white),
                     ),
+                    obscureText: true,
                   ),
-                  SizedBox(height: 20.0), 
+                  SizedBox(height: 20.0),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.center, 
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Checkbox(
                         value: _isChecked,
@@ -114,6 +121,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   SizedBox(height: 20.0),
                   ElevatedButton(
                     onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => catalog()),
+                      );
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.blue.shade800,
@@ -133,6 +144,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   SizedBox(height: 16),
                   OutlinedButton(
                     onPressed: () {
+                      // Логика для регистрации
                     },
                     style: OutlinedButton.styleFrom(
                       padding: EdgeInsets.symmetric(vertical: 16),
@@ -149,7 +161,6 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ),
                   ),
-
                 ],
               ),
               SizedBox(height: 16),
@@ -166,9 +177,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ],
           ),
-
-        )
-
+        ),
       ),
     );
   }
